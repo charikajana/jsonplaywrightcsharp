@@ -43,6 +43,14 @@ public class PlaywrightManager
     public IPage? Page => _page;
 
     /// <summary>
+    /// Set the current active page (used for window switching)
+    /// </summary>
+    public void SetActivePage(IPage page)
+    {
+        _page = page;
+    }
+
+    /// <summary>
     /// Get the browser context
     /// </summary>
     public IBrowserContext? Context => _context;

@@ -39,6 +39,8 @@ public class UniversalStepDefinition
         };
 
         AllureMetadataHelper.GenerateEnvironmentProperties();
+        AllureMetadataHelper.GenerateExecutorMetadata();
+        AllureMetadataHelper.AddScenarioLinks(_scenarioContext.ScenarioInfo.CombinedTags);
         Logger.ScenarioStart(_scenarioContext.ScenarioInfo.Title);
 
         try

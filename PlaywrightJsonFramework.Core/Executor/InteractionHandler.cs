@@ -155,6 +155,37 @@ public static class InteractionHandler
         await WebActions.WaitForNetworkIdle(page);
     }
 
+    public static async Task<IPage> ExecuteSwitchWindow(IBrowserContext context, ActionData action)
+    {
+        IPage newPage;
+        if (int.TryParse(action.Value, out int index))
+        {
+            newPage = await WebActions.SwitchToPage(context, index);
+        }
+        else
+        {
+            newPage = await WebActions.SwitchToPage(context, action.Value ?? "");
+        }
+        return newPage;
+    }
+
+    public static async Task<IPage> ExecuteClickAndSwitch(IPage page, ActionData action)
+    {
+        var locator = await GetLocator(page, action, "CLICK_AND_SWITCH");
+        
+        Logger.Info($"Clicking and waiting for popup: {action.Description}", COMPONENT);
+        
+        var popup = await page.RunAndWaitForPopupAsync(async () =>
+        {
+            await locator.ClickAsync();
+        });
+
+        await popup.WaitForLoadStateAsync();
+        Logger.Success($"Switched to popup: {await popup.TitleAsync()}", COMPONENT);
+        
+        return popup;
+    }
+
     private static async Task<ILocator> GetLocator(IPage page, ActionData action, string context)
     {
         if (action.Element == null)

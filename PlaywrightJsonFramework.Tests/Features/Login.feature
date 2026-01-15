@@ -2,6 +2,7 @@
 Feature: User Authentication
   Test user login functionality with JSON-driven approach
 
+  @issue:JIRA-101 @tm:TR-202 @rally:DE-303
   Scenario: Successful Login
     Given User navigates to "https://the-internet.herokuapp.com/login"
     When User enters username "tomsmith" and password "SuperSecretPassword!"

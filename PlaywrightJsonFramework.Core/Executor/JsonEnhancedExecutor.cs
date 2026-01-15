@@ -1,5 +1,6 @@
 using Microsoft.Playwright;
 using PlaywrightJsonFramework.Core.Data;
+using PlaywrightJsonFramework.Core.Playwright;
 using PlaywrightJsonFramework.Core.Repository;
 using PlaywrightJsonFramework.Core.Utils;
 
@@ -11,12 +12,14 @@ namespace PlaywrightJsonFramework.Core.Executor;
 /// </summary>
 public class JsonEnhancedExecutor
 {
-    private readonly IPage _page;
+    private IPage _page => PlaywrightManager.Instance.Page 
+        ?? throw new InvalidOperationException("Browser page is not initialized.");
+    
     private const string COMPONENT = "JSON EXECUTOR";
 
     public JsonEnhancedExecutor(IPage page)
     {
-        _page = page;
+        // page is unused now as we look at PlaywrightManager directly
     }
 
     /// <summary>
@@ -125,6 +128,17 @@ public class JsonEnhancedExecutor
                 case ActionTypes.DRAG_DROP:
                 case ActionTypes.DRAG_AND_DROP:
                     await InteractionHandler.ExecuteDragAndDrop(_page, action);
+                    break;
+
+                case ActionTypes.SWITCH_WINDOW:
+                    var context = PlaywrightManager.Instance.Context ?? throw new Exception("Context not found");
+                    var switchedPage = await InteractionHandler.ExecuteSwitchWindow(context, action);
+                    PlaywrightManager.Instance.SetActivePage(switchedPage);
+                    break;
+
+                case ActionTypes.CLICK_AND_SWITCH:
+                    var popupPage = await InteractionHandler.ExecuteClickAndSwitch(_page, action);
+                    PlaywrightManager.Instance.SetActivePage(popupPage);
                     break;
 
                 case ActionTypes.UPLOAD_FILE:

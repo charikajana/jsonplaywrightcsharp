@@ -44,6 +44,7 @@ public static class ActionTypes
     public const string UNCHECK = "UNCHECK";
     public const string PRESS_KEY = "PRESS_KEY";
     public const string SWITCH_WINDOW = "SWITCH_WINDOW";
+    public const string CLICK_AND_SWITCH = "CLICK_AND_SWITCH";
     public const string DRAG_DROP = "DRAG_DROP"; // Legacy
     public const string DRAG_AND_DROP = "DRAG_AND_DROP";
     public const string SCROLL = "SCROLL"; // Legacy

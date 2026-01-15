@@ -114,15 +114,21 @@ namespace PlaywrightJsonFramework.Tests.Features
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Successful Login")]
+        [global::NUnit.Framework.CategoryAttribute("issue:JIRA-101")]
+        [global::NUnit.Framework.CategoryAttribute("tm:TR-202")]
+        [global::NUnit.Framework.CategoryAttribute("rally:DE-303")]
         public async global::System.Threading.Tasks.Task SuccessfulLogin()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "issue:JIRA-101",
+                    "tm:TR-202",
+                    "rally:DE-303"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "0";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Successful Login", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 5
+#line 6
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -132,16 +138,16 @@ namespace PlaywrightJsonFramework.Tests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 6
+#line 7
     await testRunner.GivenAsync("User navigates to \"https://the-internet.herokuapp.com/login\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 7
+#line 8
     await testRunner.WhenAsync("User enters username \"tomsmith\" and password \"SuperSecretPassword!\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 8
+#line 9
     await testRunner.AndAsync("User clicks login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 9
+#line 10
     await testRunner.ThenAsync("User should see \"You logged into a secure area!\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
