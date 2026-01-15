@@ -22,7 +22,12 @@ public class Hooks
     [AfterTestRun]
     public static async Task SendFinalReport()
     {
-        if (!ExecutionConfig.EnableEmail) return;
+        Console.WriteLine("[DEBUG] AfterTestRun: Starting email report generation...");
+        if (!ExecutionConfig.EnableEmail) 
+        {
+            Console.WriteLine("[DEBUG] Email is disabled. Skipping.");
+            return;
+        }
 
         Logger.Info("Generating final email report with CI/CD metadata...", "HOOKS");
 
@@ -37,6 +42,8 @@ public class Hooks
             ExecutionConfig.ResultsUrl
         );
 
+        Console.WriteLine($"[DEBUG] Attempting to send email to: {ExecutionConfig.RecipientEmail}");
         await EmailUtils.SendTestSummary(subject, body);
+        Console.WriteLine("[DEBUG] AfterTestRun: Email process finished.");
     }
 }

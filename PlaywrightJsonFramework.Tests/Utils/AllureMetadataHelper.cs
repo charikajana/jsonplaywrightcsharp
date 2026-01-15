@@ -9,7 +9,8 @@ namespace PlaywrightJsonFramework.Tests.Utils;
 /// </summary>
 public static class AllureMetadataHelper
 {
-    private static readonly string AllureResultsPath = Path.Combine(Directory.GetCurrentDirectory(), "allure-results");
+    private static readonly string AllureResultsPath = Environment.GetEnvironmentVariable("ALLURE_RESULTS_DIRECTORY") 
+        ?? Path.Combine(Directory.GetCurrentDirectory(), "allure-results");
 
     /// <summary>
     /// Generate environment.properties file for Allure
@@ -18,6 +19,7 @@ public static class AllureMetadataHelper
     {
         try
         {
+            Console.WriteLine($"[DEBUG] Allure results directory: {AllureResultsPath}");
             Directory.CreateDirectory(AllureResultsPath);
             var envFilePath = Path.Combine(AllureResultsPath, "environment.properties");
 
