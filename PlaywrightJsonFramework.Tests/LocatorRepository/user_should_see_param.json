@@ -1,0 +1,52 @@
+{
+    "stepFileName": "user_should_see_param",
+    "gherkinStep": "User should see \"You logged into a secure area!\"",
+    "normalizedStep": "user_should_see_param",
+    "stepType": "Then",
+    "stepNumber": 4,
+    "status": "passed",
+    "actions": [
+        {
+            "actionNumber": 1,
+            "actionType": "VERIFY_TEXT",
+            "description": "Verify success message",
+            "element": {
+                "type": "div",
+                "id": "flash",
+                "name": null,
+                "selector": "#flash",
+                "cssSelector": "div#flash",
+                "xpath": "//div[@id='flash']",
+                "text": null,
+                "placeholder": null,
+                "dataTest": null,
+                "ariaLabel": null,
+                "role": null,
+                "title": null,
+                "alt": null,
+                "className": "flash success",
+                "value": null,
+                "href": null,
+                "src": null,
+                "fingerprint": {
+                    "attributes": {
+                        "type": null,
+                        "role": "alert",
+                        "ariaLabel": null,
+                        "classList": "flash success"
+                    },
+                    "context": {
+                        "nearbyText": "You logged into a secure area!",
+                        "parentTag": "div",
+                        "heading": "Secure Area"
+                    }
+                }
+            },
+            "value": "___RUNTIME_PARAMETER___"
+        }
+    ],
+    "metadata": {
+        "createdDate": "2026-01-15T09:15:00",
+        "totalActions": 1
+    }
+}

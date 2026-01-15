@@ -1,0 +1,51 @@
+{
+    "stepFileName": "user_clicks_login_button",
+    "gherkinStep": "User clicks login button",
+    "normalizedStep": "user_clicks_login_button",
+    "stepType": "When",
+    "stepNumber": 3,
+    "status": "passed",
+    "actions": [
+        {
+            "actionNumber": 1,
+            "actionType": "CLICK",
+            "description": "Click Login Button",
+            "element": {
+                "type": "button",
+                "id": null,
+                "name": null,
+                "selector": "button[type='submit']",
+                "cssSelector": "button.radius",
+                "xpath": "//button[@type='submit']",
+                "text": "Login",
+                "placeholder": null,
+                "dataTest": null,
+                "ariaLabel": null,
+                "role": "button",
+                "title": null,
+                "alt": null,
+                "className": "radius",
+                "value": null,
+                "href": null,
+                "src": null,
+                "fingerprint": {
+                    "attributes": {
+                        "type": "submit",
+                        "role": "button",
+                        "ariaLabel": null,
+                        "classList": "radius"
+                    },
+                    "context": {
+                        "nearbyText": "Login",
+                        "parentTag": "form",
+                        "heading": "Login Page"
+                    }
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "createdDate": "2026-01-15T09:15:00",
+        "totalActions": 1
+    }
+}

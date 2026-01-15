@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="PlaywrightJsonFramework.Core/PlaywrightJsonFramework.Core.csproj" />
+  <Project Path="PlaywrightJsonFramework.Tests/PlaywrightJsonFramework.Tests.csproj" />
+</Solution>
